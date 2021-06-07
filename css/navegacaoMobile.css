@@ -1,0 +1,176 @@
+ 
+/* getfeatureinfo table */
+.getfeatureinfo-table, .getfeatureinfo-table th, .getfeatureinfo-table td {
+    border: 1px solid black;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+html, body, #map {
+    height: 100%;
+    font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.map:-moz-full-screen {
+    height: 100%;
+}
+.map:-webkit-full-screen {
+    height: 100%;
+}
+.map:-ms-fullscreen {
+    height: 100%;
+}
+.map:fullscreen {
+    height: 100%;
+}
+.ol-rotate {
+    top: 3em;
+}
+.layerorder{
+    width: 80%;
+}
+
+.panel-body {
+    padding:0;
+}
+
+.ol-control button, .ol-scale-line {
+    background-color: rgba(1,66,11, 0.5);
+}
+
+.ol-control button:focus, .ol-control button:hover {
+    background-color: rgba(0,136,60,.7);
+}
+
+.node-selected {
+    background-color: rgba(1,66,11, 1);
+}
+
+.panel-info > .panel-heading {
+    background-color: rgba(1,66,11, 0.2);
+}
+
+#floating_alert {
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    z-index: 5000;
+    opacity: 0.6;
+}
+
+.layerDrawingOrderRight {
+	float: right; 
+	right-margin: -50px; 
+	width: 50px;
+}
+
+.layerDrawingOrderLeft {
+	float: left; 
+}
+
+/*modificações no ol3-sidebar*/
+.sidebar-tabs {
+    background-color: rgba(1,66,11, 0.5); 
+}
+
+.sidebar-tabs > li:hover, .sidebar-tabs > ul > li:hover {
+    background-color: rgba(1,66,11, 0.6); 
+}
+
+.sidebar-tabs > li.active, .sidebar-tabs > ul > li.active {
+    background-color: rgba(1,66,11, 1); 
+}
+
+.sidebar-header {
+    background-color: rgba(1,66,11, 1); 
+}
+
+
+.sidebar-left ~ .sidebar-map .ol-zoom-extent {
+  margin-left: 46px; }
+  @media (min-width: 768px) {
+    .sidebar-left ~ .sidebar-map .ol-zoom-extent {
+      transition: margin-left 500ms; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .sidebar-left ~ .sidebar-map .ol-zoom-extent {
+      margin-left: 317px; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar-left ~ .sidebar-map .ol-zoom-extent {
+      margin-left: 402px; } }
+  @media (min-width: 1200px) {
+    .sidebar-left ~ .sidebar-map .ol-zoom-extent {
+      margin-left: 472px; } }
+
+@media (min-width: 768px) {
+  .sidebar-left.collapsed ~ .sidebar-map .ol-zoom-extent {
+    margin-left: 52px; } }
+
+       
+.sidebar.collapsed {
+    width: 42px; 
+}
+
+.sidebar-header {
+    margin: -11px -20px 0;
+    height: 41px;
+}
+.sidebar-tabs, .sidebar-tabs > ul {
+    width: 42px; 
+}
+
+/*Should this change with media width? */
+.ol-mouse-position { margin-right: 30px; }
+
+.cswRecord {border:solid; border-width:1px; border-color: #d8d8d8;} 
+
+.border  {border:solid; border-width:1px; border-color: #a8a8a8; padding: 5px; background-color: #e8e8e8 }
+
+.sidebar-content {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#WeatherResult th, #WeatherResult td {
+    text-align: center;
+    padding: 1px;
+}
+
+#WeatherResult th {
+    font-weight: bold;    
+}
+
+#WeatherResult tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+#table_future table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+}
+
+#table_future td, #table_future th {
+    border: 1px solid #dddddd;
+    text-align: center;
+}
+
+#table_future tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+#table_future img {
+    width: 50px;
+}
+
+
+
+
+
+
+
+
+
+

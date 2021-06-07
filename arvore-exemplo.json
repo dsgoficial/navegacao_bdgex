@@ -1,0 +1,61 @@
+[{"text": "Mapas", "selectable": false, "layerName": "", "url": "", "idcg_arvore": 1, "getFeatureInfoURL": "", "beginSelected": false, "urlwcs": "", "urlwfs": "", "layerwcs": "", "layerwfs": "", "type": 3, "nodes": [
+{"text": "CPTEC", "selectable": false, "layerName": "", "url": "", "idcg_arvore": 2, "getFeatureInfoURL": "", "beginSelected": false, "urlwcs": "", "urlwfs": "", "layerwcs": "", "layerwfs": "", "type": 3, "nodes": [
+{
+    "text": "Precipitação Acumulada - CPTEC",
+    "selectable": true,
+    "layerName": "prec_soma",
+    "url": "http://sigma.cptec.inpe.br/cgi-bin/mapserv?map=/extra2/sigma/www/webservice/webservice_dsa.map",
+    "idcg_arvore": 4,
+    "getFeatureInfoURL": "http://sigma.cptec.inpe.br/cgi-bin/mapserv?map=/extra2/sigma/www/webservice/webservice_dsa.map",
+    "beginSelected": false,
+    "urlwcs": "",
+    "urlwfs": "",
+    "layerwcs": "",
+    "layerwfs": "",
+    "type": 6
+    }, 
+{
+    "text": "Precipitacao TMPA 24h - CPTEC",
+    "selectable": true,
+    "layerName": "prec_tmpa24h",
+    "url": "http://sigma.cptec.inpe.br/cgi-bin/mapserv?map=/extra2/sigma/www/webservice/webservice_dsa.map",
+    "idcg_arvore": 5,
+    "getFeatureInfoURL": "http://sigma.cptec.inpe.br/cgi-bin/mapserv?map=/extra2/sigma/www/webservice/webservice_dsa.map",
+    "beginSelected": false,
+    "urlwcs": "",
+    "urlwfs": "",
+    "layerwcs": "",
+    "layerwfs": "",
+    "type": 6
+    },
+]}, 
+{"text": "SC", "selectable": false, "layerName": "", "url": "", "idcg_arvore": 3, "getFeatureInfoURL": "", "beginSelected": false, "urlwcs": "", "urlwfs": "", "layerwcs": "", "layerwfs": "", "type": 3, "nodes": [
+{
+    "text": "Ortoimagens de Santa Catarina (Fonte: Governo do Estado)",
+    "selectable": true,
+    "layerName": "OrtoRGB-Landsat-2012",
+    "url": "http://sigsc.sc.gov.br/sigserver/gwc/service/wmts",
+    "idcg_arvore": 6,
+    "getFeatureInfoURL": "http://sigsc.sc.gov.br/sigserver/gwc/service/wms",
+    "beginSelected": false,
+    "urlwcs": "",
+    "urlwfs": "",
+    "layerwcs": "",
+    "layerwfs": "",
+    "type": 4
+    },
+    {
+    "text": "Modelos de Terreno de Santa Catarina (Fonte: Governo do Estado)",
+    "selectable": true,
+    "layerName": "MDT-2012",
+    "url": "https://sigsc.sc.gov.br:80/sigserver/SIGSC/ows?",
+    "idcg_arvore": 7,
+    "getFeatureInfoURL": "https://sigsc.sc.gov.br:80/sigserver/SIGSC/ows?",
+    "beginSelected": false,
+    "urlwcs": "",
+    "urlwfs": "",
+    "layerwcs": "",
+    "layerwfs": "",
+    "type": 4
+    }
+]}]}]

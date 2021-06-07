@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BDGEx Mobile</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 	<meta charset="UTF-8">
+ 	
+ 	<!-- Web app metadata-->
+    <link rel="apple-touch-icon" sizes="128x128" href="img/bdgex_mobile3.png">
+ 	
+ 	<!--External CSS files.--> 
+    <link href="css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/ol.css" type="text/css">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/nouislider.css" rel="stylesheet">
+	<!--These are our CSS files.-->
+    <link rel="stylesheet" href="css/ol3-sidebar.css" type="text/css"/>
+    <link rel="stylesheet" href="css/navegacaoMobile.css?ver=1" type="text/css"/>
+
+</head>
+<body>
+    <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" target="_self" role="tab" data-toggle="tooltip" title="Camadas disponíveis"><i class="fa fa-map"></i></a></li>
+                <li><a href="#draw" target="_self" role="tab" data-toggle="tooltip" title="Opções de desenho das camadas"><i class="fa fa-edit"></i></a></li>
+				<li><a href="#cswsearch" target="_self" id="cswsearch" role="tab" data-toggle="tooltip" title="Encontrar produtos"><i class="fa fa-file-download"></i></a></li>
+                <li><a href="#search" target="_self" role="tab" data-toggle="tooltip" title="Encontrar localidades"><i class="fa fa-search"></i></a></li>
+                <li><a href="#navigation" target="_self" role="tab" data-toggle="tooltip" title="Navegação por satélites"><i class="fa fa-location-arrow"></i></a></li>
+                <!--<li><a href="#externalwms" role="tab" data-toggle="tooltip" title="Adicionar WMS Externo"><i class="fa fa-globe"></i></a></li>-->
+                <li><a href="javascript:void(0);" target="_self" id="getFeatureInfoButton" role="button" data-toggle="tooltip" title="Informações na coordenada"><i class="fa fa-info-circle"></i></a></li>
+                <li><a href="javascript:void(0);" target="_self" id="cutToolButton" role="button" data-toggle="tooltip" title="Ferramente de Corte"><i class="fa fa-cut"></i></a></li>
+            </ul>
+
+            <ul role="tablist">
+                <li><a href="http://www.geoportal.eb.mil.br/portal/bdgex-1/perguntas-frequentes-bdgex-mobile" role="button" data-toggle="tooltip" title="Dúvidas Frequentes" target="_blank"><i class="fa fa-question-circle"></i></a></li>
+            	<li><a href=" mailto:suporte.bdgex@dsg.eb.mil.br?subject=BDGEx Mobile" role="button" data-toggle="tooltip" title="Contate o desenvolvedor" target="_blank"><i class="glyphicon glyphicon-envelope"></i></a></li>
+                <li><a href="http://www.geoportal.eb.mil.br/portal" role="button" data-toggle="tooltip" title="GeoPortal do Exército - Versão Desktop" target="_blank"><i class="fa fa-desktop"></i></a></li>
+                <!--<li><a href="#sett ings" role="tab"><i class="fa fa-gear"></i></a></li>-->
+                 
+                <li><a href="http://www.eb.mil.br" role="button" data-toggle="tooltip" title="Exército Brasileiro - Braço Force, Mão Amiga." target="_blank"><img src="img/Coat_of_arms_of_the_Brazilian_Army.svg" style="max-width: 50%; height: auto;" alt="Exército Brasileiro" width="500" height="861"></a></li>
+            </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header">
+                    BDGEx: Camadas disponíveis
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <div class="form-group">
+                  <div class="button-checkbox">
+    		        <label for="adv-button">Árvore de navegação:</label>
+    		        <button type="button" class="btn" data-color="primary" id="adv-button">Simplificada</button>
+    		        <input id="advCheckBox" type="checkbox" class="hidden"/> <!--  -->
+    		      </div>
+    		      <div id="search-layers">
+                    <label for="input-search">Procurar camadas:</label>
+                    <input class="form-control" id="input-search" placeholder="Digite o nome da camada..." value="" type="input">
+                    <button type="button" class="btn btn-success " id="btn-search">Procurar</button>
+                    <button type="button" class="btn btn-default" id="btn-clear-search">Limpar</button>
+                  </div>
+                </div>
+                <label for="treeview-selectable">Camadas disponíveis:</label>
+	            <div id="treeview-selectable" class="treeview"></div>
+            </div>
+
+            <div class="sidebar-pane" id="navigation">
+                <h1 class="sidebar-header">BDGEx: Navegação por satélites<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+    			<label for="track">
+    			   	Mostrar no mapa a posição do dispositivo móvel
+    	        </label>
+                <div class="button-checkbox">
+    		        <button type="button" class="btn" data-color="primary" id="track-button">Ativar</button>
+    		        <input id="track" type="checkbox" class="hidden"/> <!--  -->
+    		    </div>
+    			<div id="info"></div>
+    			<div class="row"><div class="col-sm-">Acurácia da posição : </div><div class="col-sm-" id="accuracy"></div></div>
+    			<div class="row"><div class="col-sm-">Altitude : </div><div class="col-sm-" id="altitude"></div></div>
+    			<div class="row"><div class="col-sm-">Acurácia da altitude : </div><div class="col-sm-" id="altitudeAccuracy"></div></div>
+    			<div class="form-group">
+                    <button type="button" class="btn btn-default" id="btn-zoomtogps">Aproximar para a posição</button>
+                </div>                
+        
+            </div>
+        
+
+            <div class="sidebar-pane" id="draw">
+                <h1 class="sidebar-header">BDGEx: Opções de desenho<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                
+			    <div class="row">    
+                    <label for="layerDrawingOrder">Ordem de desenho das camadas:<br> (Arraste para reordenar)</label>
+                	<ul id="layerDrawingOrder" class="list-unstyled"> </ul>
+                </div>
+               
+            </div>
+
+            <div class="sidebar-pane" id="search">
+                <h1 class="sidebar-header">BDGEx: Localidades<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <div class="form-group">
+                  <label for="input-geonames-search">Procurar localidades para centralizar o mapa:</label>
+                  <input class="form-control" id="input-geonames-search" placeholder="Digite o nome da localidade..." value="" type="input">
+                  <button type="button" class="btn btn-success " id="btn-search-geonames">Procurar</button>
+                  <button type="button" class="btn btn-default" id="btn-clear-search-geonames">Limpar</button>
+                </div>
+                <label for="geonamesList">Localidades disponíveis:</label>
+	            <div id="geonamesList"></div>
+            </div>
+            
+            <div class="sidebar-pane" id="getfeatureinfo">
+                <h1 class="sidebar-header">BDGEx: Informações na coordenada<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <div id="GetFeatureInfoResult"></div>
+            </div>
+            
+            <div class="sidebar-pane" id="cswsearch">
+                <h1 class="sidebar-header">BDGEx: Encontrar produtos<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <a href='/mediador/index.php?modulo=pesquisarproduto&acao=formularioPesquisaTextual' id="btn-metadata-search">
+                    <button type="button" class="btn" data-color="primary">Ir para a Consulta por Metadados</button>
+                </a>
+                <div class="form-group">
+                    <label for="input-csw-search">Digite as palavras para buscar nos metadados dos produtos:</label>
+                    <input class="form-control" id="input-csw-search" placeholder="Digite as palavras-chave..." value="" type="input">
+                    <button type="button" class="btn btn-success " id="btn-csw-search">Procurar</button>
+                    <button type="button" class="btn btn-default" id="btn-csw-clear-search">Limpar</button>
+        		    <div class="button-checkbox">
+        		        <button type="button" class="btn" data-color="primary" id="inputMoreFilters">Mostrar filtros</button>
+        		        <input id="chk-csw-inputMoreFilters" type="checkbox" class="hidden">
+        		    </div>
+        		    
+                </div>
+                <div id="moreFiltersDiv" class="container col-sm-12 form-group collapse border">
+                    <div class="button-checkbox">
+        		        <button type="button" class="btn" data-color="primary" id="btn-csw-usebbox">Apenas da região exibida</button>
+        		        <input id="chk-csw-usebbox" type="checkbox" class="hidden" checked="true">
+        		    </div>
+        		    <div class="col-sm-12">
+        		    	<label for="csw-sel-tipoPCDG">Tipo de produto:</label>
+                        <select class="form-control" id="csw-sel-tipoPCDG">
+                        <option value="">- Todos tipos de produtos -</option>
+                        <option value="SCN Carta Topografica Vetorial,Nao SCN Conj. de Dados Geoespaciais Vetoriais">Cartas Topográficas Vetoriais</option>
+                        <option value="SCN Carta Topografica Matricial">Cartas Topográficas Matriciais</option>
+                        <option value="MDS - RAM,Modelo Tridimensional MDS,Modelo Tridimensional SRTM">Modelos Digitais de Elevação</option>
+                        <option value="Ortoimagem SCN,Ortoimagem Radar Colorida,Imagem Landsat7">Ortoimagens</option>
+                        <option value="Carta Ortoimagem Especial,SCN Carta Ortoimagem">Carta Ortoimagem</option>
+                        <option value="Tematico CISP,Tematico CIRP,Tematico CTPD,Tematico CISC,Tematico CIRC,Nao SCN Carta Topografica Especial Matricial">Cartas Temáticas</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="col-sm-6">
+    						<label for="input-csw-end-date">Produzido após:</label>
+                            <input class="form-control  align-self-end" id="input-csw-datemin" placeholder="Ano" value="" min="1900" max="2018" type="number">
+    					</div>
+    					<div class="col-sm-6">
+                            <label for="input-csw-start-date">Produzido até:</label>
+                            <input class="form-control" id="input-csw-datemax" placeholder="Ano" value="" min="1900" max="2018" type="number">
+	                    </div>
+                    </div>
+                    <div class="col-sm-12">
+                         <label for="csw-sel-scale-oper col-form-label">Denominador da escala do produto:</label>
+                    </div>     
+                    <div class="form-group col-sm-6">   
+                        <select class="form-control text-center" id="csw-sel-scale-oper">
+                           <option value="PropertyIsEqualTo" selected="selected">Igual a</option>
+                           <option value="PropertyIsGreaterThan">Maior que</option>
+                           <option value="PropertyIsLessThan">Menor que</option>                        
+                        </select>
+                 	</div>
+                    <div class="form-group col-sm-6">
+                        <input class="form-control" id="input-csw-scale" placeholder="Denominador" value="" type="number">
+                    </div>
+
+        		    <!-- <div>Data inicial: <input type="date" class="form-control"> </div>
+        		    <div>Data final: <input type="date" class="form-control"> </div> -->
+        		</div>
+	            <div id="cswProductList" class="form-group">
+    	            <div id="cswProductListControls" hidden>
+    	            	<div><strong>Produtos encontrados:</strong></div>	
+                      	<button type="button" class="btn btn-default" id="btn-csw-previous">Anteriores</button>
+                      	<button type="button" class="btn btn-default" id="btn-csw-next">Próximos</button>
+                      	<input type="hidden" id="input-startposition"/>
+                        <input type="hidden" id="input-matched"/>
+                        <input type="hidden" id="input-nextrecord"/>
+    	            </div>
+					<div  id="div-results"></div>
+					<div id="table-csw-results"></div>
+	            </div>
+
+            </div>
+            
+            <div class="sidebar-pane" id="settings">
+                <h1 class="sidebar-header">BDGEx: Configurações<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+            
+            
+            <div class="sidebar-pane" id="externalwms">
+                <h1 class="sidebar-header">BDGEx: Adicionar WMS Externo<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <!--<div class="form-group">
+                  <label for="input-wms">Endereço do serviço WMS externo:</label>
+                  <input class="form-control" id="input-wms" placeholder="Digite o endereço do serviço WMS..." value="" type="input">
+                  <button type="button" class="btn btn-success" id="btn-listExternalWMSLayers">Listar camadas</button>
+                  <button type="button" class="btn btn-default" id="btn-clear-input-wms">Limpar</button>
+                </div>
+                <div id="externalWMSLayerList">-->
+                </div>
+            </div>
+            
+        </div>
+
+    <div id="map" class="sidebar-map"></div>
+
+	<div hidden id="treeJsonDiv"><?php echo $this->arvore; ?></div>
+    
+    <div class="modal fade" role="dialog" id="mobileModal">
+        <div class="modal-dialog  modal-sm">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="mobileModalLabel">Confirmar</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+	
+	<!-- Para forçar que um script seja recarregado aumente em 1 o número da ver do script --> 
+    <script src="js/ol.js?ver=4.0" type="text/javascript"></script>
+    <script src="js/jquery.js?ver=1"></script>  
+    <script src="js/jquery.mobile.custom.OnlyEvents.min.js"></script>  
+    <script src="js/ol3-sidebar.js?ver=1"></script>
+    <script src="js/Sortable.min.js"></script>
+    <script src="js/bootstrap.min.js?ver=1"></script>
+    <script src="js/bootstrap-treeview.min.js?ver=1"></script>
+    <script src="js/nouislider.js?ver=1"></script>
+
+    <!-- Navegacao mobile JavaScript -->
+    <script src="js/navegacaoMobile.js?ver=1"></script>    
+    <script src="js/navegacaoTreeView.js?ver=1"></script>
+    <script src="js/navegacaoMobileGPS.js?ver=1"></script>
+    <script src="js/navegacaoTools.js?ver=1"></script>
+    <script src="js/navegacaoCSW.js?ver=1"></script>
+    <script src="js/navegacaoCutBox.js?ver=1"></script>
+    <script src="js/navegacaoGetFeatureInfo.js?ver=1"></script>
+    <script src="js/checkbox.js?ver=1"></script>
+
+    <script>
+        if (window.screen.width < 1024){
+			var el = document.getElementById('btn-metadata-search');
+			el.style.display = "none";
+		}
+    </script>
+
+</body>
+</html>

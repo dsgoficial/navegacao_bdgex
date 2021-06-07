@@ -1,0 +1,457 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="/djangomedia/mediador/mediador/css/bootstrap.css" rel="stylesheet">
+    <link href="/djangomedia/mediador/mediador/css/vermetadados.css" rel="stylesheet">
+    <script src="/djangomedia/mediador/mediador/js/jquery/jquery-1.9.1.min.js"></script>  
+    <script src="/djangomedia/mediador/mediador/js/bootstrap.min.js"></script>
+    <script src="/djangomedia/mediador/mediador/js/loadFromIso.js"></script>
+
+    <title>BDGEx - Ver Metadados</title>
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <a class="navbar-brand" href="#">Detalhes dos metadados</a>
+            </div>
+            <div class="" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a data-toggle="tab" href="#metametadados">Metametadados</a></li>
+                <li class="active"><a data-toggle="tab" href="#identProduto">Identificação do produto</a></li>
+                <li><a data-toggle="tab" href="#carTecnicas">Características Técnicas</a></li>
+                <!--<li><a data-toggle="tab" href="#qualidade">Qualidade</a></li>
+                <li><a data-toggle="tab" href="#localizacao">Localização</a></li>-->
+            </ul>
+            </div>
+        </div>
+    </nav>
+    <form class="form-horizontal" action="/action_page.php">
+    <div class="tab-content">
+        <div id="metametadados" class="tab-pane fade in">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gmd:fileIdentifier gco:CharacterString">Identificador de metadados:</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" id="gmd:fileIdentifier gco:CharacterString" placeholder="Será preenchido automaticamente" value="{{ fileIdentifier }}">
+                </div>
+            </div>
+            <label for="contatoGrupo" >Contato</label>            
+            <div class="panel panel-default"  id="contatoGrupo">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:contact gmd:CI_ResponsibleParty gmd:individualName gco:CharacterString">Responsável pelas informações de metadados/CREA:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:contact gmd:CI_ResponsibleParty gmd:individualName gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:contact gmd:CI_ResponsibleParty gmd:positionName gco:CharacterString">Função do responsável:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:contact gmd:CI_ResponsibleParty gmd:positionName gco:CharacterString">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:contact gmd:CI_ResponsibleParty gmd:organisationName gco:CharacterString">Nome da organização:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:contact gmd:CI_ResponsibleParty gmd:organisationName gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:contact gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:onlineResource gmd:CI_OnlineResource gmd:linkage gco:CharacterString">Endereço eletrônico da organização:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:contact gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:onlineResource gmd:CI_OnlineResource gmd:linkage gco:CharacterString">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:contact gmd:CI_ResponsibleParty gmd:role gco:CharacterString">Função da organização:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:contact gmd:CI_ResponsibleParty gmd:role gco:CharacterString">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gmd:MD_Metadata gmd:dateStamp gco:Date">Data de preenchimento:</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" id="gmd:MD_Metadata gmd:dateStamp gco:Date">
+                </div>
+                <label class="control-label col-sm-2" for="gmd:MD_Metadata gmd:language gco:CharacterString">Idioma:</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" id="gmd:MD_Metadata gmd:language gco:CharacterString">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gmd:MD_Metadata gmd:characterSet gco:CharacterString">Conjunto de caracteres:</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" id="gmd:MD_Metadata gmd:characterSet gco:CharacterString">
+                </div>
+                <label class="control-label col-sm-2" for="gmd:MD_Metadata gmd:metadataStandardName gco:CharacterString">Padrão de metadados:</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" id="gmd:MD_Metadata gmd:metadataStandardName gco:CharacterString">
+                </div>
+            </div>
+            
+        
+        
+        </div>
+        <div id="identProduto" class="tab-pane fade in active">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gmd:collectiveTitle gco:CharacterString">Projeto:</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" id="gmd:collectiveTitle gco:CharacterString">
+                </div>
+            </div>
+            <label for="identProdGrupo" >Nomenclatura</label>  
+            <div class="panel panel-default"  id="identProdGrupo">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:citation gmd:title gco:CharacterString">Título:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:citation gmd:title gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:citation gmd:alternateTitle gco:CharacterString">Nome do produto:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:citation gmd:alternateTitle gco:CharacterString">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:citation gmd:alternateTitle ~ gmd:alternateTitle gco:CharacterString">Índice de nomenclatura:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:citation gmd:alternateTitle ~ gmd:alternateTitle gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:citation gmd:alternateTitle ~ gmd:alternateTitle ~ gmd:alternateTitle gco:CharacterString">Código no mapa Índice:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:citation gmd:alternateTitle ~ gmd:alternateTitle ~ gmd:alternateTitle gco:CharacterString">
+                    </div>
+                </div>
+            </div>
+            <label for="identProdGrupo" >Datas</label>  
+            <div class="panel panel-default"  id="identProdData">
+                
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:date gco:Date">Data do produto:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:date gco:Date">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:dateType gco:CharacterString">Tipo de data:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:dateType gco:CharacterString">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:edition gco:CharacterString">Edição:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:edition gco:CharacterString">
+                </div>
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:editionDate gco:Date">Data da edição:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:editionDate gco:Date">
+                </div>
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:CI_Series gmd:name gco:CharacterString">Nome da série do produto:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:CI_Series gmd:name gco:CharacterString">
+                </div>
+            </div>
+            <div class="form-group">
+            	<label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:abstract gco:CharacterString">Resumo sobre a finalidade do produto:</label>
+                <div class="col-sm-4">
+                    <textarea rows="5" class="form-control" id="gmd:MD_DataIdentification gmd:abstract gco:CharacterString"></textarea>
+                </div>
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:purpose gco:CharacterString">Propósito original da criação do produto:</label>
+                <div class="col-sm-4">
+                    <textarea rows="5" class="form-control" id="gmd:MD_DataIdentification gmd:purpose gco:CharacterString"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:credit gco:CharacterString">Créditos:</label>
+                <div class="col-sm-4">
+                	<input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:credit gco:CharacterString">
+                </div>
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:status gco:CharacterString">Situação:</label>
+                <div class="col-sm-4">
+                	 <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:status gco:CharacterString">
+                </div>
+            </div>
+            <label for="identResolucao" >Resolução Espacial</label>  
+            <div class="panel panel-default"  id="identResolucao">
+                
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:spatialResolution gmd:denominator gco:Integer">Escala de uso prevista:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:spatialResolution gmd:denominator gco:Integer">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:denominator ~ gmd:denominator gco:Integer">Maior escala para utilização do conjunto de dados:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:denominator ~ gmd:denominator gco:Integer">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:language gco:CharacterString">Idioma:</label>
+                <div class="col-sm-4">
+                	<input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:language gco:CharacterString">
+                </div>
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:characterSet gco:CharacterString">Conjunto de caracteres:</label>
+                <div class="col-sm-4">
+                	 <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:characterSet gco:CharacterString">
+                </div>
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:topicCategory gco:CharacterString">Tópico da categoria:</label>
+                <div class="col-sm-4">
+                	 <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:topicCategory gco:CharacterString">
+                </div>
+            </div>
+            
+            <label for="identExtensoes" >Extensão</label>  
+            <div class="panel panel-default"  id="identExtencoes">
+            	<div class="row">
+                	<div class="col-sm-4 col-sm-offset-4">
+                		<label class="control-label" for="gmd:MD_DataIdentification gmd:northBoundLatitude gco:Decimal">Latitude norte</label>
+                    	 <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:northBoundLatitude gco:Decimal"/>
+                	</div>
+            	</div>
+            	<div class="row">
+            	    <div class="col-sm-4 col-sm-offset-2">
+                        <label class="control-label" for="gmd:MD_DataIdentification gmd:westBoundLongitude gco:Decimal">Longitude oeste:</label>
+                       	<input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:westBoundLongitude gco:Decimal"/>
+                   	</div>
+                   	<div class="col-sm-4">
+                   		<label class="control-label" for="gmd:MD_DataIdentification gmd:eastBoundLongitude gco:Decimal">Longitude leste:</label>
+                       	<input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:eastBoundLongitude gco:Decimal"/>
+                    </div>
+                </div>
+                <div class="row">
+            	    <div class="col-sm-4 col-sm-offset-4">
+                		<label class="control-label" for="gmd:MD_DataIdentification gmd:southBoundLatitude gco:Decimal">Latitude sul</label>
+                    	<input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:southBoundLatitude gco:Decimal"/>
+                    </div>
+            	</div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:supplementalInformation gco:CharacterString">Informações complementares:</label>
+                <div class="col-sm-4">
+                    <textarea rows="5" class="form-control" id="gmd:MD_DataIdentification gmd:supplementalInformation gco:CharacterString"></textarea>
+                </div>
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:spatialRepresentationType gco:CharacterString">Tipo de representação espacial:</label>
+                <div class="col-sm-4">
+                	 <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:spatialRepresentationType gco:CharacterString">
+                </div>
+            </div>
+            <!-- ESTE CAMPO ESTÁ MAPEADO ERRADO NO PYXSW!-->
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:spatialResolution gmd:distance gco:Integer">Equidistância das curvas de nível (m):</label>
+                <div class="col-sm-4">
+                	 <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:spatialResolution gmd:distance gco:Integer">
+                </div>
+            </div>
+            
+            <label for="pontosDeContatoGrupo" >Pontos de contato (Produtor)</label>            
+            <div class="panel panel-default"  id="pontosDeContatoGrupo">
+                <div class="form-group"> <!--Nao testado-->
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:individualName gco:CharacterString">Responsável técnico:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:individualName gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:positionName gco:CharacterString">Função do responsável:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:positionName gco:CharacterString">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:organisationName gco:CharacterString">Nome da organização responsável pelo produto:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:organisationName gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:onlineResource gmd:CI_OnlineResource gmd:linkage gco:CharacterString">Endereço eletrônico da organização:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:onlineResource gmd:CI_OnlineResource gmd:linkage gco:CharacterString">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:address gco:CharacterString">Endereço da organização:</label>
+                    <div class="col-sm-4">
+                    <textarea rows="3" class="form-control" id="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:address gco:CharacterString"></textarea>
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:phone gco:CharacterString">Telefone da organização:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:phone gco:CharacterString">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:role gco:CharacterString">Função da organização:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:pointOfContact gmd:CI_ResponsibleParty gmd:role gco:CharacterString">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:presentationForm gco:CharacterString">Forma de apresentação:</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:presentationForm gco:CharacterString">
+                </div>
+            </div>
+            <!--Faltando no pycw
+            <label for="restricoesGrupo" >Restrições</label>             
+            <div class="panel panel-default"  id="restricoesGrupo">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:keyword gco:CharacterString">Limitação de acesso:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:keyword gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:type gco:CharacterString">Limitação de uso:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:type gco:CharacterString">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:keyword gco:CharacterString">Restrições de uso:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:keyword gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:type gco:CharacterString">Grau de sigilo:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:type gco:CharacterString">
+                    </div>
+                </div>
+            </div>
+            -->
+            <label for="palavrasChaveGrupo" >Palavras-chave</label>            
+            <div class="panel panel-default"  id="palavrasChaveGrupo">
+                <div class="form-group"> <!--Isso deveria ser repetido para cada palvra-chave-->
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:keyword gco:CharacterString">Palavras-chave:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:keyword gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:type gco:CharacterString">Tipo palavra-chave:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:descriptiveKeywords gmd:type gco:CharacterString">
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div id="carTecnicas" class="tab-pane fade">
+            <label for="sistemaReferenciaPlanimetricoGrupo" >Sistema de referência planimétrico</label>            
+            <div class="panel panel-default"  id="sistemaReferenciaPlanimetricoGrupo">
+                <div class="form-group"> <!--Nao testado-->
+                    <label class="control-label col-sm-2" for="gmd:MD_ReferenceSystem gmd:referenceSystemIdentifier gmd:code gco:CharacterString">Código:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_ReferenceSystem gmd:referenceSystemIdentifier gmd:code gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_ReferenceSystem gmd:referenceSystemIdentifier gmd:authority gco:CharacterString">Autoridade:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_ReferenceSystem gmd:referenceSystemIdentifier gmd:authority gco:CharacterString">
+                    </div>
+                </div>
+            </div>
+            <label for="sistemaReferenciaAltimetricoGrupo" >Sistema de referência altimétrico</label>            
+            <div class="panel panel-default"  id="sistemaReferenciaAltimetricoGrupo">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:verticalExtent gmd:verticalDatum gco:CharacterString">Datum vertical:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:verticalExtent gmd:verticalDatum gco:CharacterString">
+                    </div>
+                </div>
+            </div>
+            <label for="manutencaoGrupo" >Manutenção do produto</label> <!-- Nao testado -->    
+            <div class="panel panel-default"  id="manutencaoGrupo">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_DataIdentification gmd:resourceMaintenance gmd:maintenanceAndUpdateFrequency gmd:MD_MaintenanceFrequencyCode">Frequência de atualização:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DataIdentification gmd:resourceMaintenance gmd:maintenanceAndUpdateFrequency gmd:MD_MaintenanceFrequencyCode">
+                    </div>
+                </div>
+            </div>
+            <label for="distribuicaoGrupo" >Distribuição do produto</label>
+            <div class="panel panel-default"  id="distribuicaoGrupo">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:distributionFormat gmd:name gco:CharacterString">Formato do arquivo:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:distributionFormat gmd:name gco:CharacterString">
+                    </div>
+                    <!--Falta no pycsw-->
+                    <label class="control-label col-sm-2" for="gmd:MD_DigitalTransferOptions gmd:offLine gmd:namegco:CharacterString">Nome da mídia:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DigitalTransferOptions gmd:offLine gmd:namegco:CharacterString">
+                    </div>
+                </div>
+                <div class="form-group"> <!--Falta no pycsw-->
+                    <label class="control-label col-sm-2" for="gmd:distributionFormat gmd:version gco:CharacterString">Versão do formato:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:distributionFormat gmd:version gco:CharacterString">
+                    </div>
+                </div>
+                <div class="form-group"> <!--Nao testado-->
+                    <label class="control-label col-sm-2" for="gmd:MD_DigitalTransferOptions gmd:transferSize gco:CharacterString">Tamanho para distribuição:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_DigitalTransferOptions gmd:transferSize gco:CharacterString">
+                    </div>
+                    <label class="control-label col-sm-2" for="gmd:MD_Distribution gmd:onLine gmd:linkage gco:CharacterString">Recurso online:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_Distribution gmd:onLine gmd:linkage gco:CharacterString">
+                    </div>
+                </div>
+                
+                <label for="distribuidorGrupo" >Informações do distribuidor</label>
+                <div class="panel panel-default"  id="distribuidorGrupo">
+                    <div class="form-group"> <!--Nao testado-->
+                        <label class="control-label col-sm-2" for="gmd:MD_Distribution gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:individualName gco:CharacterString">Responsável técnico:</label>
+                        <div class="col-sm-4">
+                        <input type="text" class="form-control" id="gmd:MD_Distribution gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:individualName gco:CharacterString">
+                        </div>
+                        <label class="control-label col-sm-2" for="gmd:MD_Distribution gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:positionName gco:CharacterString">Função do responsável:</label>
+                        <div class="col-sm-4">
+                        <input type="text" class="form-control" id="gmd:MD_Distribution gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:positionName gco:CharacterString">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="gmd:MD_Distribution gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:organisationName gco:CharacterString">Nome da organização distribuidora:</label>
+                        <div class="col-sm-4">
+                        <input type="text" class="form-control" id="gmd:MD_Distribution gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:organisationName gco:CharacterString">
+                        </div>
+                        <label class="control-label col-sm-2" for="gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:onlineResource gmd:CI_OnlineResource gmd:linkage gco:CharacterString">Endereço eletrônico da organização:</label>
+                        <div class="col-sm-4">
+                        <input type="text" class="form-control" id="gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:onlineResource gmd:CI_OnlineResource gmd:linkage gco:CharacterString">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:address gco:CharacterString">Endereço da organização:</label>
+                        <div class="col-sm-4">
+                        <textarea rows="3" class="form-control" id="gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:address gco:CharacterString"></textarea>
+                        </div>
+                        <label class="control-label col-sm-2" for="gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:phone gco:CharacterString">Telefone da organização:</label>
+                        <div class="col-sm-4">
+                        <input type="text" class="form-control" id="gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:contactInfo gmd:CI_Contact gmd:phone gco:CharacterString">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:role gco:CharacterString">Função da organização:</label>
+                        <div class="col-sm-4">
+                        <input type="text" class="form-control" id="gmd:MD_Distributor gmd:CI_ResponsibleParty gmd:role gco:CharacterString">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="gmd:MD_Distribution gmd:distributionOrderProcess gmd:fees gco:CharacterString">Custo:</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="gmd:MD_Distribution gmd:distributionOrderProcess gmd:fees gco:CharacterString">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="qualidade" class="tab-pane fade">
+            <p>Qualidade</p>
+        </div>
+        <div id="localizacao" class="tab-pane fade">
+            <p>Localização</p>
+        </div>
+        
+    </div>
+    </form>
+</div>
+
+<!-- Optional JavaScript -->
+
+</body>
+</html>
