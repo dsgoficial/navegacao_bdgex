@@ -2,8 +2,8 @@
 Stand alone page for map navigation from BDGEx
 
 The page works based on a JSON file containing layers info.
-There is a example json named arvore-exemplo.json showing which
-attributes are needed.
+There is a example json named arvore-exemplo.json showing how it must be filled.
+This file name needs to be changed to 'arvore.json' in order to be used. 
 
 CSW service URI is defined at the very beggining of files 'loadFromIso.js' and 'navegacaoCSW.js'.
 DECEA aerodromes weather data acquisition needs an api key to be inserted at 'navegacaoGetFeatureInfo.js'.
