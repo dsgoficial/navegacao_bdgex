@@ -3,6 +3,7 @@ Página 'stand alone' de navegação por mapas do BDGEx
 
 Funciona baseada em arquivo JSON que contenha informações das camadas.
 O arquivo arvore-exemplo.json demonstra como deve ser preenchido.
+Para ser usado, o arquivo deve ter seu nome alterado para apenas 'arvore.json'.
 
 O serviço CSW é definido em URLs nos arquivos 'loadFromIso.js' e 'navegacaoCSW.js'.
 A coleta de dados de aeródromos do DECEA necessita uma api key a ser inserida no início do arquivo 'navegacaoGetFeatureInfo.js'.
