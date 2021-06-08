@@ -1,7 +1,7 @@
 # navegacao_bdgex
 Stand alone page for map navigation from BDGEx
 
-The page works based in a JSON file containing layers info.
+The page works based on a JSON file containing layers info.
 There is a example json named arvore-exemplo.json showing which
 attributes are needed.
 
