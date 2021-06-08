@@ -5,7 +5,7 @@ function satelliteTool(trackID, map, zoomToGPSButton) {
     this.geolocation = new ol.Geolocation({
         projection: this.view.getProjection()
     });
-    this.iconSource = "images/soldado.svg";
+    this.iconSource = "img/soldado.svg";
     this.accuracyFeature = new ol.Feature();
     this.positionFeature = new ol.Feature();
     this.positionFeature.setStyle(new ol.style.Style({

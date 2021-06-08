@@ -14,10 +14,10 @@ $(function () {
             color = $button.data('color'),
             settings = {
                 on: {
-                    icon: 'glyphicon glyphicon-check',
+                    icon: 'fa fa-check',
                 },
                 off: {
-                    icon: 'glyphicon glyphicon-unchecked',
+                    icon: 'fa fa-square',
                 }
             };
 

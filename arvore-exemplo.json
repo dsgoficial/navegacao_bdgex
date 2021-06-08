@@ -1,4 +1,20 @@
 [{"text": "Mapas", "selectable": false, "layerName": "", "url": "", "idcg_arvore": 1, "getFeatureInfoURL": "", "beginSelected": false, "urlwcs": "", "urlwfs": "", "layerwcs": "", "layerwfs": "", "type": 3, "nodes": [
+{"text": "Open Street Maps", "selectable": false, "layerName": "", "url": "", "idcg_arvore": 8, "getFeatureInfoURL": "", "beginSelected": false, "urlwcs": "", "urlwfs": "", "layerwcs": "", "layerwfs": "", "type": 3, "nodes": [
+{
+    "text": "Mapa base",
+    "selectable": true,
+    "layerName": "",
+    "url": "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "idcg_arvore": 9,
+    "getFeatureInfoURL": "",
+    "beginSelected": false,
+    "urlwcs": "",
+    "urlwfs": "",
+    "layerwcs": "",
+    "layerwfs": "",
+    "type": 8
+    }
+]},
 {"text": "CPTEC", "selectable": false, "layerName": "", "url": "", "idcg_arvore": 2, "getFeatureInfoURL": "", "beginSelected": false, "urlwcs": "", "urlwfs": "", "layerwcs": "", "layerwfs": "", "type": 3, "nodes": [
 {
     "text": "Precipitação Acumulada - CPTEC",
@@ -27,7 +43,7 @@
     "layerwcs": "",
     "layerwfs": "",
     "type": 6
-    },
+    }
 ]}, 
 {"text": "SC", "selectable": false, "layerName": "", "url": "", "idcg_arvore": 3, "getFeatureInfoURL": "", "beginSelected": false, "urlwcs": "", "urlwfs": "", "layerwcs": "", "layerwfs": "", "type": 3, "nodes": [
 {
@@ -58,4 +74,5 @@
     "layerwfs": "",
     "type": 4
     }
-]}]}]
+]}
+]}]
