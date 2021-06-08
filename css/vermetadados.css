@@ -1,0 +1,25 @@
+/*Cores da barra de navegação */
+.navbar {
+    background-color: rgba(1,66,11, 0.5);     
+}
+
+.navbar-nav > li > a, .navbar > ul > a, .navbar-brand {
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: rgba(1,66,11, 1); 
+}
+
+.navbar-nav > li > a:hover, .navbar > ul > a:hover {
+    background-color: rgba(1,66,11, 0.2);      
+}
+
+.navbar-nav > li.active > a, .navbar > ul > li.active {
+    background-color: rgba(1,66,11, 1);
+}
+
+.panel-default {
+    padding: 10px;
+}
+ 

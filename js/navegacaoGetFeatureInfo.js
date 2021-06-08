@@ -1,5 +1,7 @@
 //GetFeatureInfo
 
+const apikeyDecea = '';
+
 function GetFeatureInfoTool (buttonTagId, map, infoId) {
     //Chamar funcao pai
     NavTool.call(this, buttonTagId, map);
@@ -85,7 +87,7 @@ function getMetarTaf(code, option) {
     let url = null;
     let id = null;
     if (option){
-        url = "https://api-redemet.decea.mil.br/mensagens/"+option+"/"+code+"?api_key=qYPX2ISDRkKauphMyxlYbN8sQQwGyh4RII7R248S";
+        url = "https://api-redemet.decea.mil.br/mensagens/"+option+"/"+code+"?api_key="+apikeyDecea;
         id = '#'+option+'Msg';
     }
     

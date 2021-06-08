@@ -5,6 +5,8 @@ window.app = {};
 var app = window.app;
 var mapExtent=[-125, -55, 0, 15];
 
+const geonamesPath = '';
+
 var resolutions = [0.07936954220105226, 0.06349563376084183, 0.047621725320631365, 0.031747816880420915, 0.015873908440210457, 0.007936954220105229, 0.0031747816880420914, 0.0015873908440210457, 0.0007936954220105229, 0.00031747816880420905, 0.0002476329716672831, 0.00015873908440210453, 7.936954220105226e-05, 4.7621725320631366e-05, 3.1747816880420904e-05, 2.3810862660315683e-05, 1.5873908440210452e-05, 7.936954220105226e-06, 3.174781688042091e-06, 1.5873908440210455e-06, 3.174781688042091e-07]
 
 var nodeLayermap = {}; //this is used to remember the unique relation from nodeId to openlayers layer object
@@ -254,7 +256,7 @@ function geoNamesSearch(e) {
     $("#geonamesList").html('');
     var inputFilter=$("#input-geonames-search").val();
     if (inputFilter.length>2) {
-        var wfsurl=location.protocol + '//' + location.host+"/cgi-bin/geoportal";
+        var wfsurl=location.protocol + '//' + location.host+geonamesPath;
         
         var wfsXML='<?xml version="1.0" encoding="UTF-8"?>\
         <wfs:GetFeature  service="WFS" version="1.0.0" \
