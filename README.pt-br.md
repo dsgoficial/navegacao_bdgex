@@ -9,4 +9,4 @@ A coleta de dados de aeródromos do DECEA necessita uma api key a ser inserida n
 A busca por localidades precisa de definição de URI no início do arquivo 'navegacaoMobile.js'.
 
 Para o funcionamento mais correto da página, recomendamos copiar a pasta inteira,
-ou fazer um link simbólico para a /var/www/html ou similares.
+ou fazer um link simbólico para a /var/www/html ou similares. 
