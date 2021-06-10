@@ -13,7 +13,7 @@ Locations search also needs a URI definition at 'navegacaoMobile.js'.
 For a better running in the page, we recommend copying the entire folder, or creating a symbolic link,
 at /var/www/html or similars.
 
-About the Meteorological data:
+**About the Meteorological data:**
 BDGEx uses Meteorological data from the following providers:
 - For images:
   - CPTEC/INPE (https://www.cptec.inpe.br)
