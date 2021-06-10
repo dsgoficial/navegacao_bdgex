@@ -14,6 +14,7 @@ For a better running in the page, we recommend copying the entire folder, or cre
 at /var/www/html or similars.
 
 **About the Meteorological data:**
+
 BDGEx uses Meteorological data from the following providers:
 - For images:
   - CPTEC/INPE (https://www.cptec.inpe.br)
