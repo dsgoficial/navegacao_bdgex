@@ -1,7 +1,5 @@
 //GetFeatureInfo
 
-const apikeyDecea = '';
-
 function GetFeatureInfoTool (buttonTagId, map, infoId) {
     //Chamar funcao pai
     NavTool.call(this, buttonTagId, map);
@@ -87,7 +85,7 @@ function getMetarTaf(code, option) {
     let url = null;
     let id = null;
     if (option){
-        url = "https://api-redemet.decea.mil.br/mensagens/"+option+"/"+code+"?api_key="+apikeyDecea;
+        url = "https://api-redemet.decea.mil.br/mensagens/"+option+"/"+code+"?api_key=qYPX2ISDRkKauphMyxlYbN8sQQwGyh4RII7R248S";
         id = '#'+option+'Msg';
     }
     
@@ -144,6 +142,8 @@ function getPrevisao(code) {
               headerCell.innerHTML = dias[i];
               row.appendChild(headerCell);
             }
+            
+            var datas = []
 
             //Add the data rows.
             for (var key in attributes) {
@@ -154,6 +154,9 @@ function getPrevisao(code) {
               var geocode = Object.keys(previsao)[0];
               for (var i = 0; i < Object.keys(previsao[geocode]).length; i++) {
                 var dia = Object.keys(previsao[geocode])[i];
+                if (datas.indexOf(dia) === -1){
+                  datas.push(dia)
+                }
                 if (i === 0 || i === 1) {
                   for (var j = 0; j < Object.keys(previsao[geocode][dia]).length; j++) {
                     var turno = Object.keys(previsao[geocode][dia])[j];
@@ -164,9 +167,8 @@ function getPrevisao(code) {
                       cell.appendChild(img);
                     } else if (key === 'Dia') {
                       cell.innerHTML = dia;
-                    } else if (key === 'Lua'){
-                      separado = dia.split('/')
-                      cell.innerHTML = getMoonPhase(separado[2], separado[1], separado[0]);
+                    } else if (key === 'Lua') {
+                      cell.innerHTML = getMoonPhase(dia);
                     } else {
                       cell.innerHTML = previsao[geocode][dia][turno][attributes[key]];
                     }
@@ -179,15 +181,16 @@ function getPrevisao(code) {
                     cell.appendChild(img);
                   } else if (key === "Dia") {
                     cell.innerHTML = dia;
-                  } else if (key === 'Lua'){
-                    separado = dia.split('/')
-                    cell.innerHTML = getMoonPhase(separado[2], separado[1], separado[0]);
-                } else {
+                  } else if (key === 'Lua') {
+                    cell.innerHTML = getMoonPhase(dia);
+                  }else {
                     cell.innerHTML = previsao[geocode][dia][attributes[key]];
                   }
                 }
               }
             }
+            
+            getTwilight(datas, table_future);
             
             var th = document.getElementById('previsaoResult').parentElement;
             var tr = th.parentElement;
@@ -227,7 +230,11 @@ function exportPrevisao() {
     newWin.close();
 }
 
-function getMoonPhase(year, month, day) {
+function getMoonPhase(date) {
+    var split = date.split('/')
+    var day = split[0]
+    var month = split[1]
+    var year = split[2]
     var c = e = jd = b = 0;
     var fase;
 
@@ -274,5 +281,63 @@ function getMoonPhase(year, month, day) {
         break;
     }
     return fase;
+}
+
+function getTwilight(dates, table) {
+    
+    //set twilight Attributes
+    var attributes = {
+        "Inicio Cps Civil": "civil_twilight_begin",
+        "Fim Cps Civil": "civil_twilight_end",
+        "Inicio Cps Nautico": "nautical_twilight_begin",
+        "Fim Cps Nautico": "nautical_twilight_end",
+    }
+
+    //get twilight data
+    var crepusculos = []
+    for (var i = 0; i < dates.length; i++) {
+        var split = dates[i].split('/')
+        var dia = split[0]
+        var mes = split[1]
+        var ano = split[2]
+        var crepusculo = $.ajax({
+                            type: 'GET',
+                            url: 'https://api.sunrise-sunset.org/json?lat=-15&lng=-45&formatted=0&date='+ano+'-'+mes+'-'+dia,
+                            dataType: 'json',
+                            success: function() { },
+                            data: {},
+                            async: false
+                        });
+        crepusculos.push(crepusculo.responseJSON)
+    }
+    
+    //Add the twilight data rows.
+    for (var key in attributes) {
+        row = table.insertRow(-1);
+        var cell = row.insertCell(-1);
+        cell.innerHTML = '<b>' + key + '</b>';
+        for (var c = 1; c < table.rows[3].cells.length; c++)
+        {
+        if (c === 1){
+            var cell = row.insertCell(-1);
+            cell.colSpan = 3
+            data = new Date(crepusculos[0]['results'][attributes[key]]).toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo'}).split(" ")[1]
+            cell.innerHTML = data;
+        } else if (c === 2 || c === 3){
+            continue;
+        } else if (c === 4){
+            var cell = row.insertCell(-1);
+            cell.colSpan = 3
+            data = new Date(crepusculos[1]['results'][attributes[key]]).toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo'}).split(" ")[1]
+            cell.innerHTML = data;
+        } else if (c === 5 || c === 6){
+            continue;
+        } else {
+            var cell = row.insertCell(-1);
+            data = new Date(crepusculos[c-5]['results'][attributes[key]]).toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo'}).split(" ")[1]
+            cell.innerHTML = data;
+        }
+        }
+    }        
 }
 
