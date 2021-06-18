@@ -22,3 +22,5 @@ BDGEx uses Meteorological data from the following providers:
 - For current weather and forecast:
   - INMET (https://portal.inmet.gov.br)
   - OpenWeatherMap (TM) (https://openweathermap.org)
+- For twilight data:
+  - Sunrise-Sunset (https://sunrise-sunset.org)
