@@ -160,16 +160,22 @@ function getPrevisao(code) {
                 if (i === 0 || i === 1) {
                   for (var j = 0; j < Object.keys(previsao[geocode][dia]).length; j++) {
                     var turno = Object.keys(previsao[geocode][dia])[j];
-                    var cell = row.insertCell(-1);
                     if (key === "Icone") {
+                      var cell = row.insertCell(-1);
                       var img = document.createElement('img');
                       img.src = previsao[geocode][dia][turno][attributes[key]];
                       cell.appendChild(img);
                     } else if (key === 'Dia') {
+                      var cell = row.insertCell(-1);
                       cell.innerHTML = dia;
-                    } else if (key === 'Lua') {
+                    } else if (key === 'Lua' && j === 0) {
+                      var cell = row.insertCell(-1);
+                      cell.colSpan = 3;
                       cell.innerHTML = getMoonPhase(dia);
+                    } else if (key === 'Lua' && (j === 1 || j === 2)) {
+                      continue;
                     } else {
+                      var cell = row.insertCell(-1);
                       cell.innerHTML = previsao[geocode][dia][turno][attributes[key]];
                     }
                   }
